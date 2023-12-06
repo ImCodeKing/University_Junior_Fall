@@ -106,11 +106,11 @@ def minGS(f, x, c, alpha, the_x, d):
         # print("---------------------")
         gt = g.subs(the_t, t)  # 探测点的函数值
         g1 = f0 + c * t * df0 * d  # 可接受函数值上限
-        g1_plot = f0 + c * the_t * df0 * d
+        # g1_plot = f0 + c * the_t * df0 * d
 
         if gt <= g1:
             g2 = f0 + (1 - c) * t * df0 * d  # 可接受函数值下限
-            g2_plot = f0 + (1 - c) * the_t * df0 * d
+            # g2_plot = f0 + (1 - c) * the_t * df0 * d
             if gt >= g2:
                 t_final = t
                 break
@@ -158,10 +158,10 @@ if __name__ == '__main__':
 
     xk = -np.pi
     fx = -np.inf
-    d = -diff(f).subs(x, xk)
 
     while True:
-        t, min_t = minGS(f, xk, 0.3, 2, x, d)
+        d = -diff(f).subs(x, xk)
+        t, min_t = minGS(f, xk, 0.1, 2, x, d)
         print('xk:', xk)
         xk = xk + t * d
         fx_new = f.subs(x, xk)
@@ -169,6 +169,6 @@ if __name__ == '__main__':
         print('fx:', fx_new)
         print("---------------------")
 
-        if fx_new - fx < 0.0001:
+        if abs(fx_new - fx) < 0.0001:
             break
         fx = fx_new
