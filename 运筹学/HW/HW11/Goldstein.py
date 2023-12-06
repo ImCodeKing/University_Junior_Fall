@@ -162,10 +162,10 @@ if __name__ == '__main__':
     while True:
         d = -diff(f).subs(x, xk)
         t, min_t = minGS(f, xk, 0.1, 2, x, d)
-        print('xk:', xk)
         xk = xk + t * d
         fx_new = f.subs(x, xk)
 
+        print('xk:', xk)
         print('fx:', fx_new)
         print("---------------------")
 
