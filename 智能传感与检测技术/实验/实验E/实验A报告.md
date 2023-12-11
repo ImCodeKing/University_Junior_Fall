@@ -82,21 +82,21 @@ PPG 设备可测量心率、心率变异性指标 HRV。
 <img src="./4.png" width = 70%>
 </center>
 &ensp;&ensp;&ensp;
-由原始数据平均计算可知，相邻两个\\(Sample Count\\)之间，时间差大约为\\(5 ms\\)。因此可估计lch同学，
+由原始数据平均计算可知，相邻两个 \\(Sample Count\\) 之间，时间差大约为\\(5 ms\\)。因此可估计lch同学，
 <br>
-&ensp;&ensp;&ensp;
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
 \\(P\\) 波的时限约为 \\(110 ms\\)，肢体导联振幅约为 \\(0.03 mV\\)；
 <br>
-&ensp;&ensp;&ensp;
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
 \\(P-R\\) 段的时限约为 \\(90 ms\\)；
 <br>
-&ensp;&ensp;&ensp;
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
 \\(R\\) 波的时限约为 \\(250 ms\\)，肢体导联振幅约为 \\(0.15 mV\\)；
 <br>
-&ensp;&ensp;&ensp;
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
 \\(Q\\) 波的时限约为 \\(50 ms\\)，肢体导联振幅约为 \\(0.06 mV\\)；
 <br>
-&ensp;&ensp;&ensp;
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
 \\(T\\) 波的肢体导联振幅约为 \\(0.02 mV\\)；
 <br>
 &ensp;&ensp;&ensp;
@@ -112,7 +112,19 @@ PPG 设备可测量心率、心率变异性指标 HRV。
 <font face="楷体" >
 ### PPG 系统实验
 </font>
-
+&ensp;&ensp;&ensp;
+截取一组测试较为良好的 PPG 实验数据，画出图线如下，
+<center>
+<img src="./6.png" width = 70%>
+</center>
+&ensp;&ensp;&ensp;
+由图可知，\\(5\\) 个波峰之间约有 \\(700\\) 个 \\(Sample Count\\)，即相隔约 \\(3.5 s\\)，因此求得lzy同学的心率为 
+$$\frac{60}{3.5} \times 5 = 85.7 &ensp; times/min$$
+&ensp;&ensp;&ensp;
+\\(1 - 2\\)，\\(2 - 3\\)，\\(3 - 4\\) 波峰间距离分别约为 \\(170 Sample Count\\)，\\(180 Sample Count\\)，\\(165 Sample Count\\)，即 \\(HRV\\) 分别为 \\(850 ms\\)，\\(900 ms\\)，\\(825 ms\\)。计算平均 \\(HRV\\) 为 \\(62.5 ms\\)。
+<br>
+&ensp;&ensp;&ensp;
+正成年人静坐心率一般在 \\(60 - 80 &ensp; times/min\\)之间，\\(HRV\\) 在 \\(20 - 70 ms\\)之间。因此可知lzy同学，心率与 \\(HRV\\) 数据处于正常水平。
 ##反思
 &ensp;&ensp;&ensp;
 本次实验中，各项试验的完成度较好，同时收集的各项数据也比较精准、易于分析结论。我在之前对实验的顺序策略有错误估计，重复搭建了各类测量电路，降低了实验速度。同时在预估计时存在一些失误。在以后的实验过程中，我会更认真地进行预习规划，同时也会在以后的实验过程中更加谨慎，以保证实验结果更加准确。
