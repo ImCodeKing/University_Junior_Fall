@@ -53,9 +53,9 @@ def minGS(f, x, c, alpha, the_x, d):
     print('t:', t)
     min_t = g.subs(the_t, t_final)
 
-    g_p = plot((g, (the_t, 0, 20)), line_color='red', show=False)
-    g1_p = plot((g1_plot, (the_t, 0, 20)), line_color='blue', show=False)
-    g2_p = plot((g2_plot, (the_t, 0, 20)), line_color='yellow', show=False)
+    g_p = plot((g, (the_t, 0, 3)), line_color='red', show=False, xlabel='t', ylabel='g(t)')
+    g1_p = plot((g1_plot, (the_t, 0, 3)), line_color='blue', show=False, xlabel='t', ylabel='g(t)')
+    g2_p = plot((g2_plot, (the_t, 0, 3)), line_color='yellow', show=False, xlabel='t', ylabel='g(t)')
     g_p.extend(g1_p)
     g_p.extend(g2_p)
     g_p.show()
@@ -77,7 +77,7 @@ if __name__ == '__main__':
 
     while True:
         d = -diff(f).subs(x, xk)
-        t, min_t = minGS(f, xk, 0.1, 2, x, d)
+        t, min_t = minGS(f, xk, 0.3, 2, x, d)
         xk = xk + t * d
         fx_new = f.subs(x, xk)
 
