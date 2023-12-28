@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>实验A报告_2021013445.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
+</script>
+<h2 id="center-font-size--6font-face--%22%E9%BB%91%E4%BD%93%22%E9%87%91%E5%B1%9E%E7%AE%94%E5%BC%8F%E5%BA%94%E5%8F%98%E7%89%87%E4%B8%8E%E7%94%B5%E5%AE%B9%E5%BC%8F%E4%BC%A0%E6%84%9F%E5%99%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8Afontfontcenter"><center> <font size = 6><font face = "黑体">《金属箔式应变片与电容式传感器》实验报告</font></font></center></h2>
+<div align = "center"><font size = 3 ><font face = "楷体">实验者姓名：李昭阳  学号：2021013445  实验日期：2023/10/19  实验组号：A3</font></div>
+<h3 id="center-font-size--5font-face--%22%E9%BB%91%E4%BD%93%22%E5%AE%9E%E9%AA%8C-a%E4%B8%80-%E9%87%91%E5%B1%9E%E7%AE%94%E5%BC%8F%E5%BA%94%E5%8F%98%E7%89%87%E5%8D%95%E8%87%82%E7%94%B5%E6%A1%A5%E6%80%A7%E8%83%BD%E5%AE%9E%E9%AA%8Cfontcenter"><center> <font size = 5><font face = "黑体">实验 A（一） 金属箔式应变片——单臂电桥性能实验</font></center></h3>
+<h1 id="font-size--5font-face--%22%E9%BB%91%E4%BD%93%22%E4%B8%80%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84font"><font size = 5><font face = "黑体">一、实验目的</font></h1>
+<p><font face = "宋体"><font size = 4><p>  了解金属箔式应变片的应变效应，单臂电桥工作原理和性能。</p>
+</p><font></font>
+<h1 id="font-size--5font-face--%22%E9%BB%91%E4%BD%93%22%E4%BA%8C%E5%AE%9E%E9%AA%8C%E5%8E%9F%E7%90%86font"><font size = 5><font face = "黑体">二、实验原理</font></h1>
+<p><font face = "宋体"><font size = 4><p>  通过弹性元件，可以将位移、力、力矩、加速度、压力等物理量转换为应变，因此可以用应变片做成各种参数检测的传感器。</p>
+</p>
+<p><font></font></p>
+<h1 id="font-size--5font-face--%22%E9%BB%91%E4%BD%93%22%E4%B8%89%E5%AE%9E%E9%AA%8C%E4%BB%AA%E5%99%A8font"><font size = 5><font face = "黑体">三、实验仪器</font></h1>
+<p><font face = "宋体"><font size = 4></p>
+</p>
+<p>  传感器实验模块、砝码、万用表、$±15V$ 电源、$±5V$ 电源、传感器调理电路挂件应变式传感器实验单元、热风枪。</p>
+<p><font></font></p>
+<h1 id="font-size--5font-face--%22%E9%BB%91%E4%BD%93%22%E5%9B%9B%E5%AE%9E%E9%AA%8C%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E4%B8%8E%E5%88%86%E6%9E%90font"><font size = 5><font face = "黑体">四、实验数据处理与分析</font></h1>
+<p><font face = "楷体"><font size = 5>
+一、实验数据处理<br>
+</font></font>
+<font face = "宋体"><font size = 4>
+  实验（一）数据记录表格如下表所示：</p>
+<div align = center>单臂电桥输出电压与所加负载重量值</div>
+<div align = "center"><img src = 1.png/ ></div>
+&emsp;&emsp;利用最小二乘法绘制出单臂电桥传感器的特性曲线，如下图所示：
+<div align = "center"><img src = 2.png/></div>
+<p>  由图可知系统灵敏度为$S_1 = \frac{dy}{dx} = 0.284mV/g$(保留三位有效数字)，进一步得残差如下表所示：</p>
+<div align = center>最小二乘拟合残差表</div>
+<div align = "center"><img src = 3.png/></div>
+<p>  可求得系统非线性误差$\delta_{f1} = \frac{|\Delta|_{max}}{量程} = \frac{0.10912}{56.5} = 0.193%$</p>
+<p></font></font></p>
+<p><font face = "楷体"><font size = 5>
+二、从理论上分析产生非线性误差的原因<br/>
+</font></font>
+<font face = "宋体"><font size = 4>
+  实验原理图如图所示：</p>
+<div align = center>实验原理图</div>
+<div align = "center"><img src = 4.png/ width = 70%>
+</div>
+<p>  电源输入$V_+ = 5V$，$V_- = -5V$，考虑差分放大电路的输入$u_i$，</p>
+<p>$$u_{i+} = \frac{R_6V_+}{R_6 + R_7} + \frac{R_7V_-}{R_6 + R_7}= 0V$$
+$$u_{i-} = \frac{R_5V_+}{R_5 + R_1} + \frac{R_1V_-}{R_5 + R_1}= \frac{5(R_5 - R_1)}{R_5 + R_1}V$$
+  得到$$u_i = u_{i+} - u_{i-} = \frac{5(R_1 - R_5)}{R_5 + R_1}V$$</p>
+<p>  设$R_1$受压力影响电阻变化为$\Delta R$，那么$$u_i = \frac{5\Delta R}{700 + \Delta R}V$$
+  差分放大电路放大倍数为$A_{uu}$，可得$u_o$与$\Delta R$关系为
+$$u_o = \frac{5\Delta RA_{uu}}{700 + \Delta R}V$$</p>
+<p>  一般来说，应变片的电阻值$R$与应变$ε$之间的关系可以用以下公式描述：
+$$R = R_0(1 + Kε)$$
+  $K$为常数，由弹性元件性质知应变与压力F成正比，有
+$$ε = \frac{F}{k_0} = \frac{m}{k}$$</p>
+<p>  则测量电压$u_o$与放在砝码盘上砝码质量$m$的关系式为：
+$$u_o = \frac{5KA_{uu}}{700k + Kkm}m$$</p>
+<p>  由于$Km &lt;&lt; 700$，$u_o$与$m$可用线性关系拟合，但也因此引入了非线性误差。<br/></p>
+<p></font></font></p>
+<p><font face = "楷体"><font size = 5>
+三、思考题
+</font></font></p>
+<p><font face = "宋体"><font size = 4></p>
+<p>(a). 单臂电桥时，作为桥臂电阻应变片应选用：（1）正（受拉）应变片（2）负（受压）应变片（3）正、负应变片均可以  </p>
+<p>&emsp;&emsp;答：正、负应变片均可以，这仅仅改变电阻变化的符号，即灵敏度的符号，结果的绝对值不会发生改变。  </p>
+<div STYLE="page-break-after: always;">
+</div>
+<p>(b). 说明步骤 5 的实验现象，并分析该现象出现的原因。  </p>
+<p>&emsp;&emsp;答：应变片经吹风机加热后，输出电压从0开始迅速下降，输出电压绝对值增加，这是应变片电阻随温度升高而减小导致的。  </p>
+<p></font></font></p>
+<h1 id="font-size--5font-face--%22%E9%BB%91%E4%BD%93%22%E4%BA%94%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E8%AE%B0%E5%BD%95font"><font size = 5><font face = "黑体">五、原始数据记录</font></h1>
+<div align = "center"><img src = 5.png/>
+</div>
+<div STYLE="page-break-after: always;">
+</div>
+<h3 id="center-font-size--5font-face--%22%E9%BB%91%E4%BD%93%22%E5%AE%9E%E9%AA%8C-a%E4%BA%8C-%E9%87%91%E5%B1%9E%E7%AE%94%E5%BC%8F%E5%BA%94%E5%8F%98%E7%89%87%E5%8D%8A%E6%A1%A5%E6%80%A7%E8%83%BD%E5%AE%9E%E9%AA%8Cfontcenter"><center> <font size = 5><font face = "黑体">实验 A（二） 金属箔式应变片——半桥性能实验</font></center></h3>
+<h1 id="font-size--5font-face--%22%E9%BB%91%E4%BD%93%22%E4%B8%80%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84font"><font size = 5><font face = "黑体">一、实验目的</font></h1>
+<p><font face = "宋体"><font size = 4><p>  1. 了解半桥的工作原理。  </p></p>
+<p>&emsp;&emsp;2. 比较半桥与单臂电桥的不同性能，了解其特点。  </p>
+</p><font></font>
+<h1 id="font-size--5font-face--%22%E9%BB%91%E4%BD%93%22%E4%BA%8C%E5%AE%9E%E9%AA%8C%E5%8E%9F%E7%90%86font"><font size = 5><font face = "黑体">二、实验原理</font></h1>
+<p><font face = "宋体"><font size = 4><p>  把不同受力方向的两只应变片接入电桥作为邻边，电桥输出灵敏度提高，非线性得到改善。</p>
+</p>
+<p><font></font></p>
+<h1 id="font-size--5font-face--%22%E9%BB%91%E4%BD%93%22%E4%B8%89%E5%AE%9E%E9%AA%8C%E4%BB%AA%E5%99%A8font"><font size = 5><font face = "黑体">三、实验仪器</font></h1>
+<p><font face = "宋体"><font size = 4></p>
+<p>
+<p>  传感器实验模块、传感器调理电路挂件应变式传感器实验单元、砝码、万用表、$±15V$电源、$±5V$ 电源、热风枪。</p>
+</p>
+<font></font>
+<h1 id="font-size--5font-face--%22%E9%BB%91%E4%BD%93%22%E5%9B%9B%E5%AE%9E%E9%AA%8C%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E4%B8%8E%E5%88%86%E6%9E%90font"><font size = 5><font face = "黑体">四、实验数据处理与分析</font></h1>
+<p><font face = "楷体"><font size = 5>
+一、实验数据处理<br>
+</font></font>
+<font face = "宋体"><font size = 4>
+  实验（二）数据记录表格如下表所示：</p>
+<div align = center>半桥测量时，输出电压与加负载重量值</div>
+<div align = "center"><img src = 6.png/></div>
+&emsp;&emsp;利用最小二乘法绘制出半电桥时传感器的特性曲线，如下图所示：
+<div align = "center"><img src = 7.png/></div>
+<p>  由图可知系统灵敏度为$S_2 = \frac{dy}{dx} = 0.512mV/g$(保留三位有效数字)，进一步得残差如下表所示：</p>
+<div align = center>最小二乘拟合残差表</div>
+<div align = "center"><img src = 8.png/></div>
+<p>  可求得系统非线性误差$\delta_{f2} = \frac{|\Delta|_{max}}{量程} = \frac{0.07639}{102.4} = 0.075%$</p>
+<p></font></font></p>
+<p><font face = "楷体"><font size = 5>
+二、从理论上分析半桥的输出灵敏度比单臂电桥时高了一倍，而且非线性误差也得到改善。<br/>
+</font></font>
+<font face = "宋体"><font size = 4>
+  实验原理图如图所示：</p>
+<div align = "center"><img src = 9.png/ width=40%>
+</div>
+<p>  电源输入$V_+ = 5V$，$V_- = -5V$，考虑差分放大电路的输入$u_i$，</p>
+<p>$$u_{i+} = \frac{R_6V_+}{R_6 + R_7} + \frac{R_7V_-}{R_6 + R_7}= 0V$$
+$$u_{i-} = \frac{R_2V_+}{R_1 + R_1} + \frac{R_1V_-}{R_2 + R_1}= \frac{5(R_2 - R_1)}{R_2 + R_1}V$$
+  得到$$u_i = u_{i+} - u_{i-} = \frac{5(R_1 - R_2)}{R_2 + R_1}V$$</p>
+<p>  设$R_1$受压力影响电阻变化为$\Delta R$，则$R_2$变化为$-\Delta R$，那么$$u_i = \frac{10\Delta R}{700}V$$
+  对比实验中（一）$$u_i = u_{i+} - u_{i-} = \frac{5(R_1 - R_5)}{R_5 + R_1}V = \frac{5\Delta R}{700 + \Delta R}V$$</p>
+<p>  由于$\Delta R &lt;&lt; 700$，可知实验（二）差分放大电路输入增加了两倍，而分母中$\Delta R$的消去排除了理论层面引入的非线性误差，使得实验（二）输出电压（测量电压）增加了两倍且非线性误差得到改善。</p>
+<p></font></font></p>
+<p><font face = "楷体"><font size = 5>
+三、思考题
+</font></font></p>
+<p><font face = "宋体"><font size = 4></p>
+<p>(a). 半桥测量时两片不同受力状态的电阻应变片接入电桥时，应放在：（1）对边（2）邻边（3）其他（具体说明）  </p>
+<p>&emsp;&emsp;答：应放在对边，使得两个应变片电阻引入的非线性误差得以相互抵消。 </p>
+<p>(b). 桥路（差动电桥）测量时存在非线性误差，是因为：（1）电桥测量原理上存在非线性（2）应变片应变效应是非线性的（3）调零值不是真正为零。  </p>
+<p>&emsp;&emsp;答：电桥测量原理上存在非线性  </p>
+<p>(c). 说明步骤 2 的实验现象，并分析该现象出现的原因。  </p>
+<p>
+<p>  答：均匀加热两个应变片，发现输出电压绝对值幅度较小，测量电压在$0$附近范围波动而非单调下降。这是因为两个应变片随着温度变化而产生的阻值变化基本相同，使得测量电压变化幅度不大。  </p></p>
+<div STYLE="page-break-after: always;">
+</div>
+<p></font></font></p>
+<h1 id="font-size--5font-face--%22%E9%BB%91%E4%BD%93%22%E4%BA%94%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E8%AE%B0%E5%BD%95font"><font size = 5><font face = "黑体">五、原始数据记录</font></h1>
+<div align = "center"><img src = 10.png/>
+</div>
+<div STYLE="page-break-after: always;">
+</div>
+<h3 id="center-font-size--5font-face--%22%E9%BB%91%E4%BD%93%22%E5%AE%9E%E9%AA%8C-a%E4%B8%89-%E9%87%91%E5%B1%9E%E7%AE%94%E5%BC%8F%E5%BA%94%E5%8F%98%E7%89%87%E5%85%A8%E6%A1%A5%E6%80%A7%E8%83%BD%E5%AE%9E%E9%AA%8Cfontcenter"><center> <font size = 5><font face = "黑体">实验 A（三） 金属箔式应变片——全桥性能实验</font></center></h3>
+<h1 id="font-size--5font-face--%22%E9%BB%91%E4%BD%93%22%E4%B8%80%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84font"><font size = 5><font face = "黑体">一、实验目的</font></h1>
+<p><font face = "宋体"><font size = 4><p>  了解全桥测量电路的原理及优点。  </p></p>
+<p><font></font></p>
+<h1 id="font-size--5font-face--%22%E9%BB%91%E4%BD%93%22%E4%BA%8C%E5%AE%9E%E9%AA%8C%E5%8E%9F%E7%90%86font"><font size = 5><font face = "黑体">二、实验原理</font></h1>
+<p><font face = "宋体"><font size = 4><p>  全桥测量电路中，将受力性质相同的两个应变片（共四个）分别接入电桥对边，应变片初始
+阻值相同，其输出灵敏度比半桥又提高了一倍，非线性误差和温度误差均得到明显改善。</p>
+</p>
+<p><font></font></p>
+<h1 id="font-size--5font-face--%22%E9%BB%91%E4%BD%93%22%E4%B8%89%E5%AE%9E%E9%AA%8C%E4%BB%AA%E5%99%A8font"><font size = 5><font face = "黑体">三、实验仪器</font></h1>
+<p><font face = "宋体"><font size = 4></p>
+<p>
+<p>  
+传感器实验模块、传感器调理电路挂件应变式传感器实验单元、砝码、万用表、$±15V$电源、$±5V$ 电源、热风枪。</p>
+</p>
+<p><font></font></p>
+<h1 id="font-size--5font-face--%22%E9%BB%91%E4%BD%93%22%E5%9B%9B%E5%AE%9E%E9%AA%8C%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E4%B8%8E%E5%88%86%E6%9E%90font"><font size = 5><font face = "黑体">四、实验数据处理与分析</font></h1>
+<p><font face = "楷体"><font size = 5>
+一、实验数据处理<br>
+</font></font>
+<font face = "宋体"><font size = 4>
+  实验（三）全桥输出电压与加负载重量值数据记录表格如下表所示：</p>
+<div align = center>全桥输出电压与加负载重量值</div>
+<div align = "center"><img src = 12.png/></div>
+&emsp;&emsp;利用最小二乘法绘制出全桥时传感器的特性曲线，如下图所示：
+<div align = "center"><img src = 11.png/></div>
+<p>  由图可知系统灵敏度为$S_3 = \frac{dy}{dx} = 1.12mV/g$(保留三位有效数字)，进一步得残差如下所示：</p>
+<div align = center>最小二乘拟合残差表</div>
+<div align = "center"><img src = 13.png/></div>
+<p>  可求得系统非线性误差$\delta_{f3} = \frac{|\Delta|_{max}}{量程} = \frac{2.2287}{225.2} = 0.990%$</p>
+<p>  设计为电子称后，实验（三）电桥输出电压与加负载重量值数据记录表格如下表所示：</p>
+<div align = center>电桥输出电压与加负载重量值</div>
+<div align = "center"><img src = 15.png/></div>
+&emsp;&emsp;利用最小二乘法绘制出全桥时传感器的特性曲线，如下图所示：
+<div align = "center"><img src = 14.png/></div>
+<p>  由图可知系统灵敏度为$S_4 = \frac{dy}{dx} = 0.981mV/g$(保留三位有效数字)，进一步得残差如下所示：</p>
+<div align = center>最小二乘拟合残差表</div>
+<div align = "center"><img src = 17.png/></div>
+<p>  可求得系统非线性误差$\delta_{f4} = \frac{|\Delta|_{max}}{量程} = \frac{0.571}{196.5} = 0.291%$</p>
+<p></font></font></p>
+<p><font face = "楷体"><font size = 5>
+二、比较单臂、半桥、全桥输出时的灵敏度和非线性误差，并从理论上加以分析比较，得出相应的结论。<br/>
+</font></font>
+<font face = "宋体"><font size = 4></p>
+<p>  从计算结果上看，$\delta_{f3} &gt; \delta_{f1} &gt; \delta_{f2}$。</p>
+<p>  进行理论分析，同实验（一）中详细分析，可得实验（一）、（二）、（三）的输入电压分别为：
+$$u_{i1} = \frac{5\Delta R}{700 + \Delta R}V$$
+$$u_{i2} = \frac{10\Delta R}{700}V$$
+$$u_{i3} = \frac{20\Delta R}{700}V$$
+  从理论分析上看，单臂电桥理论部分引入了非线性误差，而半桥、全桥理论公式未引入非线性误差，导致$\delta_{f3}$偏高的原因可能是由于应变片数目增多，两对应变片产生的非线性应变误差增大，以及读数时未达到稳定从而造成$\delta_{f3}$偏高。</p>
+<p></font></font></p>
+<p><font face = "楷体"><font size = 5>
+三、分析什么因素会导致电子秤的非线性误差增大，怎么消除，若要增加输出灵敏度，应采取哪些措施。  <br/>
+</font></font>
+<font face = "宋体"><font size = 4></p>
+<p>  (1)应变片的产生非线性应变可能导致电子秤的非线性误差增大，所以要控待测量物体的重量在一定范围内，防止重量过大产生非弹性应变；</p>
+<p>  (2)应变片电阻受到温度影响，测量时所有应变片应处于同一温度下；</p>
+<p>  增加灵敏度：测量电压与重物$m$的关系式为$$u_o = \frac{20KA_{uu}}{700k}m$$
+  实验可通过增大差分放大器增益$A_{uu}$进行调节，具体可通过调节$R_{W5}$实现。</p>
+<p></font></font></p>
+<p><font face = "楷体"><font size = 5>
+四、思考题
+</font></font></p>
+<p><font face = "宋体"><font size = 4></p>
+<p>
+<p>(a). 全桥测量中，当两组对边（$R_1$、$R_3$为对边）值$R$相同时，即$R_1=R_3$，$R_2 = R_4$ ，而$R_1\ne R_2$，时，是否可以组成全桥：（1）可以（2）不可以。 </p></p>
+<p>
+<p>  答：这种电阻值组合下，可以组成全桥测量电路，此时输入电压
+$$u_i = (\frac{R_1}{R_1 + R_2} - \frac{R_3}{R_3 + R_4})(V_+ - V_-) = \frac{20\Delta R}{R_1 + R_2}$$
+  系统灵敏度发生了改变，但依旧保持线性关系。</p>
+</p>
+<p>(b). 如图所示，某工程技术人员在进行材料拉力测试时在棒材上贴了两组应变片，图展示的两种方式中哪种更为合理，分析原因并说明如何利用这四片电阻应变片组成电桥，是否需要外加电阻。  </p>
+<div align = center>应变式传感器受拉时传感器周面展开图</div>
+<div align = "center"><img src = 18.png/ width=40%></div>
+<p>&emsp;&emsp;答：右侧的方法更为合理，因为结合了拉力的方向，我们可以以不同的方向粘贴应变片，使得在受到相同的拉伸时，电阻的变化大小也会不同。这样就会产生电压差，从而实现了不同的电压输出。  
+<p>  相比之下，左侧的方式由于应变片的方向相同，因此在受到相同的拉伸时，电阻的变化大小也会相同。这样无法实现电桥的效果。然而，通过右侧的粘贴方式，我们可以直接构成全桥电路，无需额外添加电阻。这种方式更为合理。  </p></p>
+<p>(c). 若用热风枪加热全桥电路中的四片应变片，分析应该会有什么现象并说明原因。  </p>
+<p>&emsp;&emsp;答：当加热温度均匀时，输出电压会不变。因为全
+桥电路特殊的结构可以使两对应变片的阻值变化在邻边应变片带来的影响下抵消掉。
+</p>
+<p>(d). 对比分析单臂电桥、半桥和全桥电路是否受温度影响，并解释背后的原因。  </p>
+<p>&emsp;&emsp;答：单臂电桥会受到温度的影响，而半桥和全桥不会。这是因为半桥和全邻边电阻受温度的影响会互相抵消，而单臂电桥受温度的影响无法抵消。  
+<p></font></font></p>
+<h1 id="font-size--5font-face--%22%E9%BB%91%E4%BD%93%22%E4%BA%94%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E8%AE%B0%E5%BD%95font"><font size = 5><font face = "黑体">五、原始数据记录</font></h1>
+<div align = "center"><img src = 19.png/>
+</div>
+<div align = "center"><img src = 20.png/>
+</div>
+<div STYLE="page-break-after: always;">
+</div>
+<h3 id="center-font-size--5font-face--%22%E9%BB%91%E4%BD%93%22%E5%AE%9E%E9%AA%8C-a%E5%9B%9B-%E7%94%B5%E5%AE%B9%E5%BC%8F%E4%BC%A0%E6%84%9F%E5%99%A8%E7%9A%84%E4%BD%8D%E7%A7%BB%E7%89%B9%E6%80%A7%E5%AE%9E%E9%AA%8Cfontcenter"><center> <font size = 5><font face = "黑体">实验 A（四） 电容式传感器的位移特性实验</font></center></h3>
+<h1 id="font-size--5font-face--%22%E9%BB%91%E4%BD%93%22%E4%B8%80%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84font"><font size = 5><font face = "黑体">一、实验目的</font></h1>
+<p><font face = "宋体"><font size = 4><p>  了解电容式传感器结构及其特点。  </p></p>
+<p><font></font></p>
+<h1 id="font-size--5font-face--%22%E9%BB%91%E4%BD%93%22%E4%BA%8C%E5%AE%9E%E9%AA%8C%E5%8E%9F%E7%90%86font"><font size = 5><font face = "黑体">二、实验原理</font></h1>
+<p><font face = "宋体"><font size = 4><p>
+  利用平板电容$C = εS/d$和其它结构的关系式通过相应的结构和测量电路可以选择 $ε$、$S$、$d$中三个参数中，保持两个参数不变，而只改变其中一个参数，则可以有测谷物干燥度（$ε$ 变）测微小位移（变$ d$）和测量液位（变 $S$）等多种电容传感器。</p>
+</p>
+<p><font></font></p>
+<h1 id="font-size--5font-face--%22%E9%BB%91%E4%BD%93%22%E4%B8%89%E5%AE%9E%E9%AA%8C%E4%BB%AA%E5%99%A8font"><font size = 5><font face = "黑体">三、实验仪器</font></h1>
+<p><font face = "宋体"><font size = 4></p>
+<p>
+<p>  传感器实验模块、传感器调理电路挂件电容式传感器实验单元、测微头、万用表、$±15V$电源。</p>
+</p>
+<p><font></font></p>
+<h1 id="font-size--5font-face--%22%E9%BB%91%E4%BD%93%22%E5%9B%9B%E5%AE%9E%E9%AA%8C%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E4%B8%8E%E5%88%86%E6%9E%90font"><font size = 5><font face = "黑体">四、实验数据处理与分析</font></h1>
+<p><font face = "楷体"><font size = 5>
+一、实验数据处理<br>
+</font></font>
+<font face = "宋体"><font size = 4>
+  实验（四）电容传感器位移与输出电压值数据记录表格如下表所示：</p>
+<div align = center>电容传感器位移与输出电压值</div>
+<div align = "center"><img src = 22.png/></div>
+&emsp;&emsp;利用最小二乘法绘制出电容传感器的特性曲线，如下图所示：
+<div align = "center"><img src = 21.png/></div>
+<p>  由图可知系统灵敏度为$S_3 = \frac{dy}{dx} = 243.69mV/mm$，进一步得残差如下表所示：</p>
+<div align = center>最小二乘拟合残差表</div>
+<div align = "center"><img src = 23.png/></div>
+<p>  可求得系统非线性误差$\delta_{f3} = \frac{|\Delta|_{max}}{量程} = \frac{12.1356}{242.1 + 240.7} = 2.514%$</p>
+<p></font></font></p>
+<p><font face = "楷体"><font size = 5>
+二、 根据实验结果，分析引起这些非线性的原因，并说明怎样提高传感器的线性度。<br/>
+</font></font>
+<font face = "宋体"><font size = 4></p>
+<p>  首先，内外极筒原始覆盖长度不够长，边缘效应使得非线性产生；其次，实验过程中由于电容的敏感性，抖动、温度、光照、周围电子仪器的辐射、人和仪器的相对位置都可能影响到测量结果，因此周围环境的稳定性也会造成系统的非线性性。</p>
+<p>  为了提高传感器的线性度，我认为首先需要保持环境的稳定性，尽可能保证周围的电子仪器等不要对对电容造成影响；同时我认为还需要克服边缘效应，因此可以采用一些补偿方式使得电容边沿磁场均匀。</p>
+<p></font></font></p>
+<p><font face = "楷体"><font size = 5>
+三、思考题
+</font></font></p>
+<p><font face = "宋体"><font size = 4></p>
+<p>
+<p>(a). 简述什么是电容式传感器的边缘效应，它会对传感器的性能带来哪些不利影响。</p></p>
+<p>
+<p>  答：边缘效应：在理想条件下，电容式传感器两极板间的静电场是均匀的。但实际上，极板边缘处的电场线弯曲并且向外发散，由此形成了边缘的附加电容，这就叫边缘效应。对于传感器而言，边缘效应指在电容式传感器边缘和角落处，由于电场的分布不均匀，导致测量结果的不准确。</p>
+<p>  不利影响：传感器在边缘处的灵敏度较低，可能会导致在某些实际应用场景下无法满足要求的精度要求；由于传感器边缘的结构与中心结构不同，导致传感器初始温度与温度变化时的响应不一致，从而产生温漂影响；由于边缘区域电场的较大不均匀性，可能会导致信号失真，从而丧失部分传感器所必需的信号清晰度和可靠性，不利于信息的准确和稳定。</p>
+</p>
+<p>(b). 电容式传感器和电感式传感器相比，有哪些优缺点？  </p>
+<p>  答：优点：电容式传感器应用范围更广泛，电感式传感器只能用于金属被测物体；电容式传感器的灵敏度更高，对微小的输入变化更敏感。</p>
+<p>  缺点：电容式传感器对使用环境十分敏感，灰尘、油污和水等因素都会改变介电常数，从而改变测量结果，电感式传感器对环境要求相对低很多。</p>
+<p></font></font></p>
+<h1 id="font-size--5font-face--%22%E9%BB%91%E4%BD%93%22%E4%BA%94%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E8%AE%B0%E5%BD%95font"><font size = 5><font face = "黑体">五、原始数据记录</font></h1>
+<div align = "center"><img src = 24.png/>
+</div>
+<h2 id="%E5%8F%8D%E6%80%9D">反思</h2>
+<p><font face = "宋体"><font size = 4>
+  本次实验中，各项试验的完成度较好，同时收集的各项数据也比较精准、易于分析结论。我在之前对实验的顺序策略有错误估计，重复搭建了各类测量电路，降低了实验速度。同时在预估计时存在一些失误。在以后的实验过程中，我会更认真地进行预习规划，同时也会在以后的实验过程中更加谨慎，以保证实验结果更加准确。</p>
+
+</body>
+</html>
