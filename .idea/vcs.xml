@@ -2,7 +2,6 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/模式识别/大作业1-5_ddl/Mask_RCNN" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/模式识别/大作业1-5_ddl/faster_RCNN/faster-rcnn-pytorch" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/模式识别/大作业1-5_ddl/Machine_learning_finalHW" vcs="Git" />
   </component>
 </project>
