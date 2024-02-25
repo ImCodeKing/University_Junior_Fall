@@ -231,8 +231,11 @@ nom_cycle_time = 0.02;          % 50 fps nominal for external animations.
 frameNum = ceil(nom_cycle_time/dt*speed);
 
 % floor
-floor_pos = [min_x, min_x, max_x, max_x; 
-             -10,   0,     0,     -10  ];
+step_len = (max_x - min_x) / 6
+floor_pos = [min_x, min_x, min_x+step_len, min_x+step_len, min_x+2*step_len, min_x+2*step_len,min_x+3*step_len, min_x+3*step_len, min_x+4*step_len, min_x+4*step_len, min_x+5*step_len, min_x+5*step_len, max_x, max_x; 
+             -10,     0,        0,              10,             10,                30,             30,                50,               50,               80,              80,                110,         110,  -10];
+% floor_pos = [min_x, min_x, max_x, max_x; 
+%              -10,   0,     0,     -10  ];
 floor_pos = RotationMatrix(-par.gamma)*floor_pos; % rotate coordinate system with sloop 
 set(FloorHandle,'Xdata',floor_pos(1,:),'Ydata',floor_pos(2,:));
 
@@ -249,21 +252,21 @@ for n = 1:frameNum:length(data.t)
     % leg In
     legInPos = RotationMatrix(phiIn)*[legInX;legInY];       % rotate leg to correct angle
     legInPos(1,:) = legInPos(1,:) + data.hippos(n,1);       % add hip offset (x-direction)
-    legInPos(2,:) = legInPos(2,:) + data.hippos(n,2);       % add hip offset (y-direction)
+    legInPos(2,:) = legInPos(2,:) + data.hippos(n,2) + 60;       % add hip offset (y-direction)
     legInPos = RotationMatrix(-par.gamma)*legInPos;         % rotate coordinate system with sloop
     set(LegInHandle,'Xdata',legInPos(1,:),'Ydata',legInPos(2,:));
         
     % leg Out
     legOutpos = RotationMatrix(phiOut)*[legOutX;legOutY]; 
     legOutpos(1,:) = legOutpos(1,:) + data.hippos(n,1);   
-    legOutpos(2,:) = legOutpos(2,:) + data.hippos(n,2);   
+    legOutpos(2,:) = legOutpos(2,:) + data.hippos(n,2) + 60;   
     legOutpos = RotationMatrix(-par.gamma)*legOutpos;     
     set(LegOutHandle,'Xdata',legOutpos(1,:),'Ydata',legOutpos(2,:)); 
     
     % shaft
     legShaftpos = RotationMatrix(phiIn)*[legShaftX;legShaftY]; 
     legShaftpos(1,:) = legShaftpos(1,:) + data.hippos(n,1);    
-    legShaftpos(2,:) = legShaftpos(2,:) + data.hippos(n,2);   
+    legShaftpos(2,:) = legShaftpos(2,:) + data.hippos(n,2) + 60;   
     legShaftpos = RotationMatrix(-par.gamma)*legShaftpos;     
     set(LegShaftHandle,'Xdata',legShaftpos(1,:),'Ydata',legShaftpos(2,:)); 
    

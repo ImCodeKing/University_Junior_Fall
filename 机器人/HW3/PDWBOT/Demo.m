@@ -173,7 +173,7 @@ s0 = [0.225; -0.225; -2.5; -1.5];
 t0 = 0;
 
 % Take 10 steps 
-[s_end, t_end, data] = Walk(s0, t0, NewBot, 10); %[s_end, t_end, data] = Walk(s0, t0, par, nr_steps) 
+[s_end, t_end, data] = Walk(s0, t0, NewBot, 2); %[s_end, t_end, data] = Walk(s0, t0, par, nr_steps) 
                                                  % Walk.m function calls Step.m 10 times
 % Average Speed and Step length                                                  
 [AvgSpeed, AvgStepLeng] = WalkIndex(data)        % mm/s, mm
